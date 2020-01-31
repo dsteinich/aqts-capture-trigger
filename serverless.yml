@@ -42,7 +42,7 @@ resources:
     S3BucketTriggering:
       Type: AWS::S3::Bucket
       Properties:
-        BucketName: iow-retriever-capture-X-${self:provider.stage}
+        BucketName: iow-retriever-capture-x-${self:provider.stage}
         AccessControl: Private
         LifecycleConfiguration:
           Rules:
@@ -59,7 +59,7 @@ resources:
         Action: 'lambda:InvokeFunction'
         SourceAccount:
           Ref: AWS::AccountId
-        SourceArn: arn:aws:s3:::iow-retriever-capture-X-${self:provider.stage}
+        SourceArn: arn:aws:s3:::iow-retriever-capture-x-${self:provider.stage}
 
 plugins:
   - serverless-python-requirements
