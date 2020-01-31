@@ -3,7 +3,7 @@ service: aqts-capture-trigger
 provider:
   name: aws
   region: us-west-2
-  stage: ${opt:stage, test}
+  stage: ${opt:stage, 'test'}
   runtime: python3.7
   memorySize: 64
   deploymentBucket:
@@ -11,7 +11,7 @@ provider:
   stackTags:
     "wma:applicationId": "Aquarius TS Capture Trigger"
     "wma:contact": "Andrew Yan ayan@usgs.gov"
-    "wma:environment": test
+    "wma:environment": "test"
     taggingVersion: 0.0.1
     "wma:costCenter": TBD
 
@@ -43,7 +43,7 @@ resources:
     S3BucketTriggering:
       Type: AWS::S3::Bucket
       Properties:
-        BucketName: iow-retriever-capture-${self:provider.stage}
+        BucketName: iow-retriever-capture-X-${self:provider.stage}
         AccessControl: Private
         LifecycleConfiguration:
           Rules:
