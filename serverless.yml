@@ -24,7 +24,7 @@ functions:
     role: arn:aws:iam::${self:custom.accountNumber}:role/csr-Lambda-Role
     onError:
       Fn::GetAtt:
-        - SNSTopicDeadLetterQueue
+        - deadLetterQueue
         - Arn
     events:
       - s3:
