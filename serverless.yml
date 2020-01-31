@@ -22,8 +22,8 @@ functions:
   aqtsCaptureTrigger:
     handler: trigger.handler.lambda_handler
     role: arn:aws:iam::${self:custom.accountNumber}:role/csr-Lambda-Role
-    onError:
-      Ref: deadLetterQueue
+#    onError:
+#      Ref: deadLetterQueue
     events:
       - s3:
           bucket: "triggering"
@@ -34,11 +34,11 @@ functions:
 
 resources:
   Resources:
-    deadLetterQueue:
-      Type: AWS::SNS::Topic
-      Properties:
-        DisplayName: aqts-trigger-sns-dlq-${self:provider.stage}
-        TopicName: aqts-trigger-sns-dlq-${self:provider.stage}
+#    deadLetterQueue:
+#      Type: AWS::SNS::Topic
+#      Properties:
+#        DisplayName: aqts-trigger-sns-dlq-${self:provider.stage}
+#        TopicName: aqts-trigger-sns-dlq-${self:provider.stage}
     S3BucketTriggering:
       Type: AWS::S3::Bucket
       Properties:
@@ -49,14 +49,14 @@ resources:
             - ExpiriationInDays: 1
               Status: Enabled
     AqtsCaptureTriggerPermissionTriggeringS3:
-      Type: AWS::Lambda::Permission
+      Type: 'AWS::Lambda::Permission'
       Properties:
         FunctionName:
           'Fn::GetAtt':
             - AqtsCaptureTriggerLambdaFunction
             - Arn
-          Principal: s3.amazon.com
-          Action: lambda:InvokeFunction
+          Principal: 's3.amazon.com'
+          Action: 'lambda:InvokeFunction'
           SourceAccount:
             Ref: AWS::AccountId
           SourceArn: arn:aws:s3:::iow-retriever-capture-${self:provider.stage}
