@@ -46,7 +46,7 @@ resources:
         AccessControl: Private
         LifecycleConfiguration:
           Rules:
-            - ExpiriationInDays: 1
+            - ExpirationInDays: 1
               Status: Enabled
     AqtsCaptureTriggerPermissionTriggeringS3:
       Type: 'AWS::Lambda::Permission'
