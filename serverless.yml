@@ -2,7 +2,7 @@ service: aqts-capture-trigger
 
 provider:
   name: aws
-  region: us-west-2
+  region: 'us-west-2'
   stage: ${opt:stage, 'test'}
   runtime: python3.7
   memorySize: 64
@@ -59,7 +59,7 @@ resources:
           Action: 'lambda:InvokeFunction'
           SourceAccount:
             Ref: AWS::AccountId
-          SourceArn: arn:aws:s3:::iow-retriever-capture-${self:provider.stage}
+          SourceArn: arn:aws:s3:::iow-retriever-capture-X-${self:provider.stage}
 
 plugins:
   - serverless-python-requirements
