@@ -5,7 +5,7 @@ provider:
   region: 'us-west-2'
   stage: ${opt:stage, 'test'}
   runtime: python3.7
-  memorySize: 64
+  memorySize: 128
   deploymentBucket:
     name: iow-cloud-applications
   stackTags:
