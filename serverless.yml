@@ -38,8 +38,9 @@ resources:
   Resources:
     deadLetterQueue:
       Type: AWS::SNS::Topic
-      DisplayName: aqts-trigger-sns-dlq-${self:provider.stage}
-      TopicName: aqts-trigger-sns-dlq-${self:provider.stage}
+      Properties:
+        DisplayName: aqts-trigger-sns-dlq-${self:provider.stage}
+        TopicName: aqts-trigger-sns-dlq-${self:provider.stage}
     S3BucketTriggering:
       Type: AWS::S3::Bucket
       Properties:
