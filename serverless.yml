@@ -55,7 +55,7 @@ resources:
           'Fn::GetAtt':
             - AqtsCaptureTriggerLambdaFunction
             - Arn
-        Principal: 's3.amazon.com'
+        Principal: 's3.amazonaws.com'
         Action: 'lambda:InvokeFunction'
         SourceAccount:
           Ref: AWS::AccountId
