@@ -58,7 +58,7 @@ resources:
           Principal: s3.amazon.com
           Action: lambda:InvokeFunction
           SourceAccount:
-            Ref: AWS::AcountId
+            Ref: AWS::AccountId
           SourceArn: arn:aws:s3:::iow-retriever-capture-${self:provider.stage}
 
 plugins:
