@@ -23,9 +23,7 @@ functions:
     handler: trigger.handler.lambda_handler
     role: arn:aws:iam::${self:custom.accountNumber}:role/csr-Lambda-Role
     onError:
-      Fn::GetAtt:
-        - deadLetterQueue
-        - Arn
+      Ref: deadLetterQueue
     events:
       - s3:
           bucket: triggering
